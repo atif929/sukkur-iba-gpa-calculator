@@ -30,7 +30,7 @@ export function gradeLetterToGP(grade) {
 // ─── GPA Calculation ──────────────────────────────────────────────────────────
 // courses: [{ creditHours, marks, grade, isNonCredit }]
 export function calculateGPA(courses) {
-  const creditCourses = courses.filter(c => !c.isNonCredit);
+  // removed unused variable => const creditCourses = courses.filter(c => !c.isNonCredit);
   let totalWeightedPoints = 0;
   let totalCreditHours = 0;
   let totalMarks = 0;

@@ -1,4 +1,4 @@
-import { RadialBarChart, RadialBar, ResponsiveContainer, Tooltip } from "recharts";
+import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
 import { getAcademicStanding } from "../utils/grading";
 import { exportResultPDF } from "../utils/pdfExport";
 
