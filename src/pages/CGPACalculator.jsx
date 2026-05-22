@@ -70,7 +70,7 @@ export default function CGPACalculator() {
             className="card-sm animate-in"
             style={{ animationDelay: `${i * 40}ms` }}
           >
-            <div style={{ display: "grid", gridTemplateColumns: "1fr 180px 180px auto", gap: 14, alignItems: "end" }}>
+            <div className="semester-row" style={{ display: "grid", gridTemplateColumns: "1fr 180px 180px auto", gap: 14, alignItems: "end" }}>
               {/* Semester Label */}
               <div className="form-group">
                 <label className="form-label">Semester Name</label>

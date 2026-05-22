@@ -1,4 +1,4 @@
-import { RadialBarChart, RadialBar, ResponsiveContainer } from "recharts";
+import { RadialBarChart, RadialBar, ResponsiveContainer, Tooltip } from "recharts";
 import { getAcademicStanding } from "../utils/grading";
 import { exportResultPDF } from "../utils/pdfExport";
 
@@ -64,7 +64,7 @@ export default function ResultDisplay({ result, courses, semesterNumber, onReset
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 220px", gap: 20, alignItems: "start" }}>
+      <div className="result-layout" style={{ display: "grid", gridTemplateColumns: "1fr 220px", gap: 20, alignItems: "start" }}>
         {/* Course Breakdown Table */}
         <div className="card" style={{ padding: 0, overflow: "hidden" }}>
           <div style={{ padding: "16px 20px", borderBottom: "1px solid var(--border)" }}>

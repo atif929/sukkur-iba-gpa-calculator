@@ -493,8 +493,94 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
 }
 
 /* ─── Responsive ─────────────────────────────────────────────────────────────── */
+
+/* Tablet */
+@media (max-width: 900px) {
+  .navbar-subtitle { display: none; }
+}
+
+/* Mobile */
 @media (max-width: 640px) {
-  .card { padding: 18px; }
-  .hero { padding: 48px 0 56px; }
-  .hero p { font-size: 15px; }
+  /* Base */
+  .container { padding: 0 14px; }
+  .card { padding: 14px; }
+  .card-sm { padding: 12px 14px; }
+  .section { padding: 28px 0; }
+
+  /* Navbar */
+  .navbar-inner { height: auto; padding: 10px 0; flex-wrap: wrap; gap: 8px; }
+  .navbar-links { gap: 2px; }
+  .nav-link { padding: 6px 10px; font-size: 13px; }
+  .navbar-subtitle { display: none; }
+
+  /* Hero */
+  .hero { padding: 36px 0 40px; }
+  .hero h1 { font-size: 26px; }
+  .hero p { font-size: 14px; margin-bottom: 24px; }
+  .hero-actions { flex-direction: column; }
+  .hero-actions .btn { width: 100%; justify-content: center; }
+
+  /* Buttons */
+  .btn-lg { padding: 12px 20px; font-size: 15px; }
+
+  /* Course Row — stack to single column */
+  .course-row {
+    grid-template-columns: 1fr 1fr !important;
+    gap: 10px;
+    padding: 12px;
+  }
+  .course-row > div:nth-child(1) { grid-column: 1 / -1; }
+  .course-row > div:nth-child(3) { grid-column: 1 / -1; }
+  .course-row > div:last-child   { grid-column: 1 / -1; justify-self: start; }
+
+  /* Result cards — 2 per row on mobile */
+  .result-grid { grid-template-columns: 1fr 1fr; gap: 10px; }
+  .result-card { padding: 16px 10px; }
+  .result-card-value { font-size: 30px; }
+
+  /* Grade table — smaller text */
+  .grade-table th, .grade-table td { padding: 8px 8px; font-size: 12px; }
+
+  /* Section titles */
+  .section-title { font-size: 18px; }
+
+  /* Toggle group */
+  .toggle-btn { padding: 7px 8px; font-size: 12px; }
+
+  /* Form inputs */
+  .form-input, .form-select { font-size: 16px; } /* 16px prevents iOS zoom */
+}
+
+/* Hero grid stacks on mobile */
+@media (max-width: 700px) {
+  .hero-grid {
+    grid-template-columns: 1fr !important;
+  }
+  .hero-grid > div:last-child {
+    display: none; /* hide stat cards on mobile to save space */
+  }
+}
+
+/* Result layout — stacks chart below table on mobile */
+@media (max-width: 700px) {
+  .result-layout {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+/* CGPA semester row stacks on mobile */
+@media (max-width: 640px) {
+  .semester-row {
+    grid-template-columns: 1fr 1fr !important;
+  }
+  .semester-row > div:first-child {
+    grid-column: 1 / -1;
+  }
+}
+
+/* Very small phones */
+@media (max-width: 380px) {
+  .navbar-links { display: none; } /* hide nav on tiny screens, use home buttons instead */
+  .result-grid { grid-template-columns: 1fr 1fr; }
+  .hero h1 { font-size: 22px; }
 }

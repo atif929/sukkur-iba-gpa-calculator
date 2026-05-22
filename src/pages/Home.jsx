@@ -9,7 +9,7 @@ export default function Home() {
       {/* Hero */}
       <section className="hero">
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "center" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "1fr auto", gap: 40, alignItems: "center" }} className="hero-grid">
             <div>
               <p className="hero-eyebrow">🎓 Sukkur IBA University</p>
               <h1>Calculate Your <span>GPA</span> &<br />CGPA Instantly</h1>

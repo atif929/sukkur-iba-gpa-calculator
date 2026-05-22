@@ -21,7 +21,7 @@ export default function GradingPolicy() {
         <p className="section-sub">Official grading scale used by Sukkur IBA University</p>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 24, marginBottom: 24 }}>
+      <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBottom: 24 }}>
         {/* Grade Table */}
         <div className="card" style={{ padding: 0, overflow: "hidden" }}>
           <div style={{ padding: "16px 20px", borderBottom: "1px solid var(--border)", background: "var(--surface2)" }}>
