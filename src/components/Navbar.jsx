@@ -37,10 +37,10 @@ export default function Navbar({ dark, toggleDark }) {
       <div className="container navbar-inner">
         <NavLink to="/" className="navbar-brand" style={{ minWidth: 0, overflow: "hidden" }}>
           <div className="navbar-logo" style={{ flexShrink: 0 }}>IBA</div>
-              <div className="navbar-text-group">
-                <div className="navbar-title">GPA Calculator</div>
-              <div className="navbar-subtitle">Sukkur IBA University</div>
-            </div>
+          <div className="navbar-text-group">
+            <div className="navbar-title">GPA Calculator</div>
+            <div className="navbar-subtitle">Sukkur IBA University</div>
+          </div>
         </NavLink>
 
         <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
@@ -60,8 +60,8 @@ export default function Navbar({ dark, toggleDark }) {
             </button>
           )}
 
-          <div className="dark-toggle-wrapper">
-              <DarkToggle dark={dark} toggle={toggleDark} />
+          <div style={{ display: "flex", alignItems: "center" }}>
+            <DarkToggle dark={dark} toggle={toggleDark} />
           </div>
 
           <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger-btn"
