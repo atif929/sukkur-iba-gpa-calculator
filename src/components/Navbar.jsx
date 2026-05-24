@@ -36,12 +36,12 @@ export default function Navbar({ dark, toggleDark }) {
     <nav className="navbar">
       <div className="container navbar-inner">
         <NavLink to="/" className="navbar-brand" style={{ minWidth: 0, overflow: "hidden" }}>
-  <div className="navbar-logo" style={{ flexShrink: 0 }}>IBA</div>
-  <div className="navbar-text-group">
-    <div className="navbar-title">GPA Calculator</div>
-    <div className="navbar-subtitle">Sukkur IBA University</div>
-  </div>
-</NavLink>
+          <div className="navbar-logo" style={{ flexShrink: 0 }}>IBA</div>
+              <div className="navbar-text-group">
+                <div className="navbar-title">GPA Calculator</div>
+              <div className="navbar-subtitle">Sukkur IBA University</div>
+            </div>
+        </NavLink>
 
         <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
           <div className="navbar-links" style={{ display: "flex" }}>
@@ -56,7 +56,7 @@ export default function Navbar({ dark, toggleDark }) {
           {installPrompt && !installed && (
             <button onClick={handleInstall} className="btn btn-accent btn-sm"
               title="Install as App" style={{ gap: 4 }}>
-              📲 Install App
+              Install App
             </button>
           )}
 
@@ -89,7 +89,7 @@ export default function Navbar({ dark, toggleDark }) {
           {installPrompt && !installed && (
             <button onClick={handleInstall} className="btn btn-accent btn-sm"
               style={{ marginTop: 8, justifyContent: "center" }}>
-              📲 Install App
+              Install App
             </button>
           )}
         </div>
