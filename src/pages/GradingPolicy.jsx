@@ -1,4 +1,5 @@
 import { GRADE_TABLE } from "../utils/grading";
+import PageWrapper from "../components/PageWrapper";
 
 function GradeBar({ gp }) {
   const pct = (gp / 4) * 100;
@@ -15,11 +16,12 @@ function GradeBar({ gp }) {
 
 export default function GradingPolicy() {
   return (
-    <div className="container section">
-      <div style={{ marginBottom: 28 }}>
-        <h1 className="section-title" style={{ fontSize: 26 }}>📋 Grading Policy</h1>
-        <p className="section-sub">Official grading scale used by Sukkur IBA University</p>
-      </div>
+    <PageWrapper>
+      <div className="container section">
+        <div style={{ marginBottom: 28 }}>
+          <h1 className="section-title" style={{ fontSize: 26 }}>📋 Grading Policy</h1>
+          <p className="section-sub">Official grading scale used by Sukkur IBA University</p>
+        </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(280px, 1fr))", gap: 24, marginBottom: 24 }}>
         {/* Grade Table */}
@@ -138,5 +140,6 @@ export default function GradingPolicy() {
         </p>
       </div>
     </div>
+    </PageWrapper>
   );
 }

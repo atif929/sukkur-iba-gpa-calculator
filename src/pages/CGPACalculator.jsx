@@ -1,6 +1,7 @@
 import { useState } from "react";
 import CGPAResult from "../components/CGPAResult";
 import { calculateCGPA } from "../utils/grading";
+import PageWrapper from "../components/PageWrapper";
 
 const defaultSemester = (n) => ({ label: `Semester ${n}`, gpa: "", creditHours: "18" });
 
@@ -35,11 +36,12 @@ export default function CGPACalculator() {
   };
 
   return (
-    <div className="container section">
-      <div style={{ marginBottom: 20 }}>
-        <h1 className="section-title" style={{ fontSize: 24 }}>📈 CGPA Calculator</h1>
-        <p className="section-sub">Enter each semester's GPA and credit hours</p>
-      </div>
+    <PageWrapper>
+      <div className="container section">
+        <div style={{ marginBottom: 20 }}>
+          <h1 className="section-title" style={{ fontSize: 24 }}>📈 CGPA Calculator</h1>
+          <p className="section-sub">Enter each semester's GPA and credit hours</p>
+        </div>
 
       <div style={{
         background: "linear-gradient(135deg, var(--primary), #1a6fcc)",
@@ -127,5 +129,6 @@ export default function CGPACalculator() {
         <p>CGPA Calculator — Sukkur IBA University | For reference only</p>
       </footer>
     </div>
+    </PageWrapper>
   );
 }

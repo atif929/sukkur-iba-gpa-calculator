@@ -1,11 +1,12 @@
 import { useNavigate } from "react-router-dom";
 import { GRADE_TABLE } from "../utils/grading";
+import PageWrapper from "../components/PageWrapper";
 
 export default function Home() {
   const nav = useNavigate();
 
   return (
-    <>
+    <PageWrapper>
       <section className="hero">
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
           <p className="hero-eyebrow">🎓 Sukkur IBA University</p>
@@ -83,6 +84,6 @@ export default function Home() {
           <p style={{ marginTop: 6, fontSize: 12 }}>Built with ❤️ by <strong style={{ color: "white" }}>Atif Rameez</strong> for IBA students</p>
         </div>
       </footer>
-    </>
+    </PageWrapper>
   );
 }

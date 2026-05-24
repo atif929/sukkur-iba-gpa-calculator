@@ -499,6 +499,11 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
   .navbar-subtitle { display: none; }
 }
 
+@media (max-width: 700px) {
+  .navbar-links { display: none !important; }
+  .hamburger-btn { display: flex !important; }
+}
+
 /* Mobile */
 @media (max-width: 640px) {
   /* Base */
@@ -583,4 +588,15 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
   .navbar-links { display: none; } /* hide nav on tiny screens, use home buttons instead */
   .result-grid { grid-template-columns: 1fr 1fr; }
   .hero h1 { font-size: 22px; }
+}
+
+/* Page transitions */
+.page-enter {
+  opacity: 0;
+  transform: translateY(12px);
+}
+.page-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.25s ease, transform 0.25s ease;
 }

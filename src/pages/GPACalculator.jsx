@@ -2,6 +2,7 @@ import { useState } from "react";
 import CourseRow from "../components/CourseRow";
 import ResultDisplay from "../components/ResultDisplay";
 import { calculateGPA, validateCourse } from "../utils/grading";
+import PageWrapper from "../components/PageWrapper";
 
 const defaultCourse = () => ({
   name: "", creditHours: "3", marks: "", grade: "",
@@ -29,6 +30,7 @@ export default function GPACalculator() {
   const handleReset = () => { setResult(null); setShowErrors(false); window.scrollTo({ top: 0, behavior: "smooth" }); };
 
   return (
+    <PageWrapper>
     <div className="container section">
       <div style={{ marginBottom: 20 }}>
         <h1 className="section-title" style={{ fontSize: 24 }}>📊 GPA Calculator</h1>
@@ -94,5 +96,6 @@ export default function GPACalculator() {
         <p>GPA Calculator — Sukkur IBA University | For reference only</p>
       </footer>
     </div>
+    </PageWrapper>
   );
 }
