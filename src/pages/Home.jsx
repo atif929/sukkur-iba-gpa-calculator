@@ -80,7 +80,7 @@ export default function Home() {
       <footer className="footer">
         <div className="container">
           <p>GPA Calculator for <strong style={{ color: "white" }}>Sukkur IBA University</strong> — For reference only.</p>
-          <p style={{ marginTop: 6, fontSize: 12 }}>Built with ❤️ for IBA students</p>
+          <p style={{ marginTop: 6, fontSize: 12 }}>Built with ❤️ by <strong style={{ color: "white" }}>Atif Rameez</strong> for IBA students</p>
         </div>
       </footer>
     </>
