@@ -460,15 +460,25 @@ h1, h2, h3, h4 { font-family: var(--font-display); font-weight: 700; line-height
   .navbar-links { display: none !important; }
   .hamburger-btn { display: flex !important; }
   .result-layout { grid-template-columns: 1fr !important; }
+  .navbar-text-group { display: none; }
+  .dark-toggle-wrapper button { width: 48px !important; height: 26px !important; }
+  .dark-toggle-wrapper button > div:last-child {
+    width: 20px !important; height: 20px !important;
+    top: 3px !important; font-size: 11px !important;
+  }
 }
 
 @media (max-width: 640px) {
-  .container { padding: 0 14px; }
+  .container { padding: 0 16px; }
+  .hero .container { padding: 0 20px; }
+  .navbar-inner { padding: 0 8px; gap: 8px; }
+  .navbar-logo { width: 34px !important; height: 34px !important; font-size: 13px !important; border-radius: 8px !important; flex-shrink: 0; }
+  .navbar-brand { gap: 8px; }
   .card { padding: 14px; }
   .section { padding: 28px 0; }
   .hero { padding: 36px 0 40px; }
   .hero h1 { font-size: 26px; }
-  .hero p { font-size: 14px; margin-bottom: 24px; }
+  .hero p { font-size: 14px; margin-bottom: 24px; word-break: break-word; }
   .hero-actions { flex-direction: column; }
   .hero-actions .btn { width: 100%; justify-content: center; }
   .btn-lg { padding: 12px 20px; font-size: 15px; }

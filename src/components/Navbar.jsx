@@ -35,15 +35,15 @@ export default function Navbar({ dark, toggleDark }) {
   return (
     <nav className="navbar">
       <div className="container navbar-inner">
-        <NavLink to="/" className="navbar-brand">
-          <div className="navbar-logo">IBA</div>
-          <div>
-            <div className="navbar-title">GPA Calculator</div>
-            <div className="navbar-subtitle">Sukkur IBA University</div>
-          </div>
-        </NavLink>
+        <NavLink to="/" className="navbar-brand" style={{ minWidth: 0, overflow: "hidden" }}>
+  <div className="navbar-logo" style={{ flexShrink: 0 }}>IBA</div>
+  <div className="navbar-text-group">
+    <div className="navbar-title">GPA Calculator</div>
+    <div className="navbar-subtitle">Sukkur IBA University</div>
+  </div>
+</NavLink>
 
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
           <div className="navbar-links" style={{ display: "flex" }}>
             {links.map(l => (
               <NavLink key={l.to} to={l.to} end={l.end}
@@ -54,12 +54,15 @@ export default function Navbar({ dark, toggleDark }) {
           </div>
 
           {installPrompt && !installed && (
-            <button onClick={handleInstall} className="btn btn-accent btn-sm" title="Install as App">
-              Install App
+            <button onClick={handleInstall} className="btn btn-accent btn-sm"
+              title="Install as App" style={{ gap: 4 }}>
+              📲 Install App
             </button>
           )}
 
-          <DarkToggle dark={dark} toggle={toggleDark} />
+          <div className="dark-toggle-wrapper">
+              <DarkToggle dark={dark} toggle={toggleDark} />
+          </div>
 
           <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger-btn"
             aria-label="Menu" style={{
