@@ -1,11 +1,15 @@
+import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 import { GRADE_TABLE } from "../utils/grading";
+import useNebulaStars from "../hooks/useNebulaStars";
 
 export default function Home() {
   const nav = useNavigate();
+  const pageRef = useRef(null);
+  useNebulaStars(pageRef);
 
   return (
-    <>
+    <div ref={pageRef}>
       {/* Hero */}
       <section className="hero">
         <div className="container" style={{ position: "relative", zIndex: 1 }}>
@@ -13,10 +17,9 @@ export default function Home() {
           <h1>Calculate Your <span>GPA</span> &<br />CGPA Instantly</h1>
           <p>Fast, accurate academic calculator built on Sukkur IBA's official grading policy. No registration required.</p>
 
-          {/* Stat pills — Fix 3: removed 100% Free */}
           <div style={{ display: "flex", gap: 10, flexWrap: "wrap", marginBottom: 28 }}>
             {[{ v: "4.00", l: "Max GPA" }, { v: "9", l: "Grade Levels" }].map(s => (
-              <div key={s.l} style={{
+              <div key={s.l} className="hero-stat-pill" style={{
                 background: "rgba(255,255,255,0.15)", backdropFilter: "blur(8px)",
                 border: "1px solid rgba(255,255,255,0.25)", borderRadius: 50,
                 padding: "6px 16px", display: "flex", alignItems: "center", gap: 8
@@ -29,9 +32,7 @@ export default function Home() {
 
           <div className="hero-actions">
             <button className="btn btn-accent btn-lg" onClick={() => nav("/gpa")}>📊 GPA Calculator</button>
-            <button className="btn btn-lg"
-              style={{ background: "rgba(255,255,255,0.15)", color: "white", border: "1.5px solid rgba(255,255,255,0.3)" }}
-              onClick={() => nav("/cgpa")}>📈 CGPA Calculator</button>
+            <button className="btn btn-lg btn-hero-glass" onClick={() => nav("/cgpa")}>📈 CGPA Calculator</button>
           </div>
         </div>
       </section>
@@ -41,20 +42,21 @@ export default function Home() {
         <div className="container">
           <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(260px, 1fr))", gap: 16, marginBottom: 32 }}>
             {[
-              { icon: "📊", title: "GPA Calculator", desc: "Enter courses with marks or grades. Supports credit & non-credit courses.", action: () => nav("/gpa"), cta: "Calculate GPA" },
-              { icon: "📈", title: "CGPA Calculator", desc: "Combine multiple semesters to track your cumulative academic progress.", action: () => nav("/cgpa"), cta: "Calculate CGPA" },
-              { icon: "📋", title: "Grading Policy", desc: "View the complete Sukkur IBA grading table with grade points and ranges.", action: () => nav("/grading"), cta: "View Policy" },
+              { icon: "📊", title: "GPA Calculator",  desc: "Enter courses with marks or grades. Supports credit & non-credit courses.", action: () => nav("/gpa"),     cta: "Calculate GPA" },
+              { icon: "📈", title: "CGPA Calculator", desc: "Combine multiple semesters to track your cumulative academic progress.",    action: () => nav("/cgpa"),    cta: "Calculate CGPA" },
+              { icon: "📋", title: "Grading Policy",  desc: "View the complete Sukkur IBA grading table with grade points and ranges.",  action: () => nav("/grading"), cta: "View Policy" },
             ].map(card => (
               <div className="card" key={card.title} style={{ display: "flex", flexDirection: "column" }}>
                 <div style={{ fontSize: 32, marginBottom: 10 }}>{card.icon}</div>
                 <h3 style={{ fontSize: 17, marginBottom: 6 }}>{card.title}</h3>
                 <p style={{ color: "var(--text-muted)", fontSize: 14, flex: 1, marginBottom: 16 }}>{card.desc}</p>
-                <button className="btn btn-primary" style={{ width: "100%", justifyContent: "center" }} onClick={card.action}>{card.cta} →</button>
+                <button className="btn btn-primary btn-nebula-purple"
+                  style={{ width: "100%", justifyContent: "center" }}
+                  onClick={card.action}>{card.cta} →</button>
               </div>
             ))}
           </div>
 
-          {/* Grading table */}
           <div className="card">
             <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", marginBottom: 16, flexWrap: "wrap", gap: 8 }}>
               <div>
@@ -65,9 +67,7 @@ export default function Home() {
             </div>
             <div style={{ overflowX: "auto" }}>
               <table className="grade-table">
-                <thead>
-                  <tr><th>Grade</th><th>Grade Points</th><th>Percentage Range</th></tr>
-                </thead>
+                <thead><tr><th>Grade</th><th>Grade Points</th><th>Percentage Range</th></tr></thead>
                 <tbody>
                   {GRADE_TABLE.map(g => (
                     <tr key={g.grade}>
@@ -89,6 +89,6 @@ export default function Home() {
           <p style={{ marginTop: 6, fontSize: 12 }}>Built with ❤️ for IBA students</p>
         </div>
       </footer>
-    </>
+    </div>
   );
 }
