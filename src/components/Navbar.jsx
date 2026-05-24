@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { NavLink } from "react-router-dom";
+import DarkToggle from "./DarkToggle";
 
-export default function Navbar() {
+export default function Navbar({ dark, toggleDark }) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const links = [
@@ -24,20 +25,25 @@ export default function Navbar() {
           </div>
         </NavLink>
 
-        <div className="navbar-links" style={{ display: "flex" }}>
-          {links.map(l => (
-            <NavLink key={l.to} to={l.to} end={l.end}
-              className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
-              {l.label}
-            </NavLink>
-          ))}
-        </div>
+        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+          <div className="navbar-links" style={{ display: "flex" }}>
+            {links.map(l => (
+              <NavLink key={l.to} to={l.to} end={l.end}
+                className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
+                {l.label}
+              </NavLink>
+            ))}
+          </div>
 
-        <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger-btn"
-          aria-label="Menu" style={{
-            display: "none", background: "none", border: "1.5px solid var(--border)",
-            borderRadius: 8, padding: "6px 10px", cursor: "pointer", fontSize: 18
-          }}>☰</button>
+          <DarkToggle dark={dark} toggle={toggleDark} />
+
+          <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger-btn"
+            aria-label="Menu" style={{
+              display: "none", background: "none", border: "1.5px solid var(--border)",
+              borderRadius: 8, padding: "6px 10px", cursor: "pointer", fontSize: 18,
+              color: "var(--text)"
+            }}>☰</button>
+        </div>
       </div>
 
       {menuOpen && (

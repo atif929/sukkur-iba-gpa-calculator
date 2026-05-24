@@ -1,0 +1,189 @@
+/* ═══════════════════════════════════════════════════════════════
+   NEBULA BUTTONS — dark mode only
+   Stars are injected as <span class="neb-star"> by useNebulaStars hook
+   ═══════════════════════════════════════════════════════════════ */
+
+/* ── Shared star particle ── */
+.neb-star {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 0;
+  opacity: 0;
+  animation: nebFloat linear infinite;
+}
+
+@keyframes nebFloat {
+  0%   { opacity: 0;    transform: translateY(0)     translateX(0)     scale(0.6); }
+  15%  { opacity: 1; }
+  85%  { opacity: 0.7; }
+  100% { opacity: 0;    transform: translateY(-22px) translateX(var(--dx, 5px)) scale(1.1); }
+}
+
+/* ══════════════════════════════════════════════════════
+   btn-nebula-purple  (Calculate GPA / CGPA / card CTAs)
+   ══════════════════════════════════════════════════════ */
+[data-theme="dark"] .btn-nebula-purple {
+  position: relative;
+  overflow: hidden;
+  background: linear-gradient(135deg, #2a3fd4 0%, #7c3aed 60%, #a21caf 100%);
+  border: 1.5px solid rgba(160, 100, 255, 0.40);
+  color: #fff;
+  box-shadow:
+    0 0 18px rgba(120, 60, 240, 0.40),
+    0 4px 14px rgba(0, 0, 30, 0.50);
+  transition: box-shadow 0.2s, border-color 0.2s, background 0.2s, transform 0.15s;
+}
+[data-theme="dark"] .btn-nebula-purple > *:not(.neb-star) { position: relative; z-index: 1; }
+
+[data-theme="dark"] .btn-nebula-purple .neb-star {
+  background: rgba(220, 200, 255, 0.90);
+  box-shadow: 0 0 3px rgba(200, 160, 255, 0.8);
+}
+
+[data-theme="dark"] .btn-nebula-purple:hover {
+  background: linear-gradient(135deg, #3b52e8 0%, #8b5cf6 55%, #c026d3 100%);
+  border-color: rgba(180, 120, 255, 0.70);
+  box-shadow:
+    0 0 32px rgba(140, 60, 255, 0.70),
+    0 0 10px rgba(200, 100, 255, 0.35),
+    0 6px 20px rgba(0, 0, 30, 0.50);
+  transform: translateY(-1px);
+}
+[data-theme="dark"] .btn-nebula-purple:active {
+  background: linear-gradient(135deg, #1e30b8 0%, #6d28d9 50%, #86198f 100%);
+  border-color: rgba(210, 150, 255, 0.95);
+  box-shadow:
+    0 0 48px rgba(160, 80, 255, 0.90),
+    0 0 20px rgba(220, 120, 255, 0.60),
+    inset 0 0 28px rgba(120, 40, 255, 0.30);
+  transform: scale(0.985);
+}
+
+/* ══════════════════════════════════════════════════════
+   btn-hero-glass  (hero CGPA button)
+   ══════════════════════════════════════════════════════ */
+[data-theme="dark"] .btn-hero-glass {
+  position: relative;
+  overflow: hidden;
+  background: rgba(20, 30, 80, 0.40);
+  color: #c8ddff;
+  border: 1.5px solid rgba(100, 150, 255, 0.40);
+  backdrop-filter: blur(10px);
+  box-shadow:
+    0 0 14px rgba(80, 130, 255, 0.20),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  transition: all 0.2s;
+}
+[data-theme="dark"] .btn-hero-glass > *:not(.neb-star) { position: relative; z-index: 1; }
+
+[data-theme="dark"] .btn-hero-glass .neb-star {
+  background: rgba(180, 210, 255, 0.90);
+  box-shadow: 0 0 3px rgba(140, 190, 255, 0.8);
+}
+
+[data-theme="dark"] .btn-hero-glass:hover {
+  background: rgba(40, 60, 160, 0.52);
+  border-color: rgba(140, 180, 255, 0.70);
+  box-shadow:
+    0 0 28px rgba(80, 130, 255, 0.45),
+    0 0 8px rgba(140, 180, 255, 0.25);
+  color: #e0eeff;
+  transform: translateY(-1px);
+}
+[data-theme="dark"] .btn-hero-glass:active {
+  background: rgba(60, 80, 200, 0.60);
+  border-color: rgba(180, 210, 255, 0.90);
+  box-shadow:
+    0 0 44px rgba(100, 160, 255, 0.70),
+    0 0 16px rgba(160, 200, 255, 0.45),
+    inset 0 0 22px rgba(80, 130, 255, 0.25);
+}
+
+/* ══════════════════════════════════════════════════════
+   btn-nebula-ghost  (+ Add Course / + Add Semester)
+   ══════════════════════════════════════════════════════ */
+[data-theme="dark"] .btn-nebula-ghost {
+  position: relative;
+  overflow: hidden;
+  background: transparent !important;
+  border: 1.5px dashed rgba(80, 130, 255, 0.38) !important;
+  color: #7cb9ff !important;
+  box-shadow: none;
+  transition: border-color 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
+}
+[data-theme="dark"] .btn-nebula-ghost > *:not(.neb-star) { position: relative; z-index: 1; }
+
+[data-theme="dark"] .btn-nebula-ghost .neb-star {
+  background: rgba(140, 190, 255, 0.85);
+  box-shadow: 0 0 2px rgba(100, 160, 255, 0.7);
+}
+
+[data-theme="dark"] .btn-nebula-ghost:hover {
+  border-color: rgba(120, 170, 255, 0.70) !important;
+  background: rgba(30, 60, 140, 0.18) !important;
+  color: #c0d8ff !important;
+  box-shadow: 0 0 14px rgba(80, 130, 255, 0.22);
+}
+[data-theme="dark"] .btn-nebula-ghost:active {
+  border-color: rgba(160, 200, 255, 0.90) !important;
+  box-shadow:
+    0 0 28px rgba(80, 130, 255, 0.50),
+    inset 0 0 14px rgba(80, 130, 255, 0.18);
+  background: rgba(40, 80, 180, 0.28) !important;
+}
+
+/* ══════════════════════════════════════════════════════
+   Marks/Grade toggle active state
+   ══════════════════════════════════════════════════════ */
+[data-theme="dark"] .toggle-btn.active {
+  background: linear-gradient(135deg, #2a3fd4, #7c3aed) !important;
+  box-shadow: 0 0 16px rgba(120, 60, 240, 0.55) !important;
+  color: #fff !important;
+  border: none;
+}
+
+/* ══════════════════════════════════════════════════════
+   Nebula remove button (CGPA semester rows)
+   ══════════════════════════════════════════════════════ */
+[data-theme="dark"] .nebula-remove-btn {
+  position: relative;
+  overflow: hidden;
+  background: radial-gradient(ellipse at 60% 40%, rgba(220,60,30,0.22) 0%, rgba(120,20,10,0.35) 100%) !important;
+  border: 1.5px solid rgba(251,113,80,0.45) !important;
+  color: rgba(255,180,140,0.95) !important;
+  text-shadow: 0 0 6px rgba(255,100,40,0.8);
+  box-shadow: 0 0 10px rgba(240,80,40,0.25), inset 0 0 8px rgba(255,80,30,0.10);
+  transition: all 0.18s;
+}
+[data-theme="dark"] .nebula-remove-btn .neb-star {
+  background: rgba(255, 210, 160, 0.90);
+  box-shadow: 0 0 2px rgba(255, 160, 80, 0.8);
+}
+[data-theme="dark"] .nebula-remove-btn > *:not(.neb-star) { position: relative; z-index: 1; }
+
+[data-theme="dark"] .nebula-remove-btn:hover {
+  border-color: rgba(255,120,60,0.78) !important;
+  background: radial-gradient(ellipse at 60% 40%, rgba(255,80,30,0.38) 0%, rgba(160,30,10,0.52) 100%) !important;
+  box-shadow: 0 0 22px rgba(255,80,30,0.55), 0 0 8px rgba(255,140,60,0.35) !important;
+  color: #fff !important;
+  text-shadow: 0 0 10px rgba(255,140,60,1), 0 0 22px rgba(255,80,30,0.6);
+}
+[data-theme="dark"] .nebula-remove-btn:active {
+  border-color: rgba(255,160,80,0.95) !important;
+  box-shadow:
+    0 0 38px rgba(255,100,40,0.85),
+    0 0 14px rgba(255,160,60,0.55),
+    inset 0 0 18px rgba(255,80,30,0.28) !important;
+  text-shadow: 0 0 18px #fff, 0 0 32px rgba(255,140,60,0.9);
+}
+
+/* ══════════════════════════════════════════════════════
+   Hero stat pills
+   ══════════════════════════════════════════════════════ */
+[data-theme="dark"] .hero-stat-pill {
+  background: rgba(20, 30, 80, 0.55) !important;
+  border-color: rgba(100, 140, 255, 0.28) !important;
+  backdrop-filter: blur(8px);
+  color: #c8ddff;
+}

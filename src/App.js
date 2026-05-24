@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Home from "./pages/Home";
@@ -11,14 +11,22 @@ import NotFound from "./pages/NotFound";
 import SplashScreen from "./components/SplashScreen";
 import "./index.css";
 
+import "./nebula-buttons.css";   // add after the index.css import
+
 export default function App() {
   const [splash, setSplash] = useState(true);
+  const [dark, setDark] = useState(() => localStorage.getItem("theme") === "dark");
+
+  useEffect(() => {
+    document.documentElement.setAttribute("data-theme", dark ? "dark" : "light");
+    localStorage.setItem("theme", dark ? "dark" : "light");
+  }, [dark]);
 
   return (
     <>
       {splash && <SplashScreen onDone={() => setSplash(false)} />}
       <BrowserRouter>
-        <Navbar />
+        <Navbar dark={dark} toggleDark={() => setDark(d => !d)} />
         <Routes>
           <Route path="/"        element={<Home />} />
           <Route path="/gpa"     element={<GPACalculator />} />
