@@ -1,9 +1,27 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import DarkToggle from "./DarkToggle";
 
 export default function Navbar({ dark, toggleDark }) {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [installPrompt, setInstallPrompt] = useState(null);
+  const [installed, setInstalled] = useState(false);
+
+  useEffect(() => {
+    window.addEventListener("beforeinstallprompt", e => {
+      e.preventDefault();
+      setInstallPrompt(e);
+    });
+    window.addEventListener("appinstalled", () => setInstalled(true));
+  }, []);
+
+  const handleInstall = async () => {
+    if (!installPrompt) return;
+    installPrompt.prompt();
+    const { outcome } = await installPrompt.userChoice;
+    if (outcome === "accepted") setInstalled(true);
+    setInstallPrompt(null);
+  };
 
   const links = [
     { to: "/", label: "Home", end: true },
@@ -35,6 +53,12 @@ export default function Navbar({ dark, toggleDark }) {
             ))}
           </div>
 
+          {installPrompt && !installed && (
+            <button onClick={handleInstall} className="btn btn-accent btn-sm" title="Install as App">
+              Install App
+            </button>
+          )}
+
           <DarkToggle dark={dark} toggle={toggleDark} />
 
           <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger-btn"
@@ -59,6 +83,12 @@ export default function Navbar({ dark, toggleDark }) {
               {l.label}
             </NavLink>
           ))}
+          {installPrompt && !installed && (
+            <button onClick={handleInstall} className="btn btn-accent btn-sm"
+              style={{ marginTop: 8, justifyContent: "center" }}>
+              📲 Install App
+            </button>
+          )}
         </div>
       )}
     </nav>

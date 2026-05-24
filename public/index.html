@@ -4,31 +4,33 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0054A6" />
-
-    <!-- SEO -->
     <meta name="description" content="Free GPA & CGPA Calculator for Sukkur IBA University students. Based on official grading policy. Fast, accurate, mobile-friendly." />
     <meta name="keywords" content="Sukkur IBA, GPA Calculator, CGPA Calculator, IBA University, Sindh" />
     <meta name="author" content="Atif Siyal" />
-
-    <!-- WhatsApp / Social Preview -->
+    <meta name="mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+    <meta name="apple-mobile-web-app-title" content="IBA GPA" />
     <meta property="og:title" content="Sukkur IBA GPA Calculator" />
     <meta property="og:description" content="Calculate your GPA & CGPA instantly using Sukkur IBA's official grading policy. Free, no login required." />
     <meta property="og:type" content="website" />
-    <meta property="og:image" content="%PUBLIC_URL%/preview.png" />
-
-    <!-- Favicon -->
+    <link rel="manifest" href="%PUBLIC_URL%/manifest.json" />
     <link rel="icon" href="%PUBLIC_URL%/favicon.svg" type="image/svg+xml" />
-    <link rel="apple-touch-icon" href="%PUBLIC_URL%/favicon.svg" />
-
-    <!-- Fonts -->
+    <link rel="apple-touch-icon" href="%PUBLIC_URL%/icon-192.svg" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet" />
-
     <title>Sukkur IBA — GPA & CGPA Calculator</title>
   </head>
   <body>
     <noscript>You need to enable JavaScript to run this app.</noscript>
     <div id="root"></div>
+    <script>
+      if ('serviceWorker' in navigator) {
+        window.addEventListener('load', function() {
+          navigator.serviceWorker.register('/sw.js');
+        });
+      }
+    </script>
   </body>
 </html>
