@@ -44,7 +44,9 @@ export default function Navbar({ dark, toggleDark }) {
         </NavLink>
 
         <div style={{ display: "flex", alignItems: "center", gap: 6, flexShrink: 0 }}>
-          <div className="navbar-links" style={{ display: "flex" }}>
+
+          {/* Desktop nav links — hidden on mobile */}
+          <div className="navbar-links">
             {links.map(l => (
               <NavLink key={l.to} to={l.to} end={l.end}
                 className={({ isActive }) => "nav-link" + (isActive ? " active" : "")}>
@@ -53,17 +55,20 @@ export default function Navbar({ dark, toggleDark }) {
             ))}
           </div>
 
+          {/* Install button — always visible, including mobile */}
           {installPrompt && !installed && (
             <button onClick={handleInstall} className="btn btn-accent btn-sm"
-              title="Install as App" style={{ gap: 4 }}>
+              title="Install as App" style={{ gap: 4, flexShrink: 0 }}>
               Install App
             </button>
           )}
 
+          {/* Dark toggle — always visible */}
           <div style={{ display: "flex", alignItems: "center" }}>
             <DarkToggle dark={dark} toggle={toggleDark} />
           </div>
 
+          {/* Hamburger — shown only on mobile via CSS */}
           <button onClick={() => setMenuOpen(!menuOpen)} className="hamburger-btn"
             aria-label="Menu" style={{
               display: "none", background: "none", border: "1.5px solid var(--border)",
@@ -73,6 +78,7 @@ export default function Navbar({ dark, toggleDark }) {
         </div>
       </div>
 
+      {/* Mobile dropdown menu */}
       {menuOpen && (
         <div style={{
           background: "var(--surface)", borderTop: "1px solid var(--border)",
@@ -86,12 +92,6 @@ export default function Navbar({ dark, toggleDark }) {
               {l.label}
             </NavLink>
           ))}
-          {installPrompt && !installed && (
-            <button onClick={handleInstall} className="btn btn-accent btn-sm"
-              style={{ marginTop: 8, justifyContent: "center" }}>
-              Install App
-            </button>
-          )}
         </div>
       )}
     </nav>
